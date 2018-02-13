@@ -4,7 +4,7 @@ CFLAGS=-Wall -O -ffreestanding
 
 BLINKY_OBJS=crt0.o blinky.o
 
-all: blinky.bin
+all: blinky.bin blinky.hex
 
 %.o: %.S
 	$(CROSS)-gcc -c $< -o $@
@@ -18,5 +18,8 @@ blinky.bin: blinky.elf
 blinky.elf: $(BLINKY_OBJS) layout.ld
 	$(CROSS)-ld $(BLINKY_OBJS) -o $@ -Tlayout.ld
 
+blinky.hex: blinky.elf
+	$(CROSS)-objcopy -O ihex $< $@
+
 clean:
-	rm -f $(BLINKY_OBJS) *.bin *.elf
+	rm -f $(BLINKY_OBJS) *.bin *.elf *.hex

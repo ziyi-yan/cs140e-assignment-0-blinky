@@ -22,7 +22,8 @@ submission: $(SUBMIT_TAR)
 
 fetch: $(FIRMWARE_DIR) $(ASSIGNMENT_FILES)
 
-$(SUBMIT_TAR):
+.FORCE:
+$(SUBMIT_TAR): .FORCE
 	@if ! [ -z "$$(git status --porcelain)" ]; then \
 	  echo "There are uncommited changes! Aborting."; \
 	  exit 1; \
