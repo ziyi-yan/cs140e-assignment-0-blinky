@@ -1,5 +1,5 @@
 ASSIGNMENT_NAME := assignment0
-BASE_URL := https://web.stanford.edu/class/cs140e
+BASE_URL := https://cs140e.sergio.bz
 SUBMISSION_SITE := $(BASE_URL)/assignments/submission/
 SUBMIT_TAR := $(ASSIGNMENT_NAME).tar.gz
 
